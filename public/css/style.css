@@ -1,0 +1,75 @@
+:root {
+    --prussian-blue: #012a4aff;
+    --indigo-dye: #013a63ff;
+    --indigo-dye-2: #01497cff;
+    --indigo-dye-3: #014f86ff;
+    --ucla-blue: #2a6f97ff;
+    --cerulean: #2c7da0ff;
+    --air-force-blue: #468fafff;
+    --air-superiority-blue: #61a5c2ff;
+    --sky-blue: #89c2d9ff;
+    --light-blue: #a9d6e5ff;
+    --orange: #ff9f1aff; /* Dodali smo narandžastu boju */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--prussian-blue);
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.registration-form {
+    background-color: var(--air-force-blue);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.registration-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+.registration-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--cerulean);
+    border-radius: 8px;
+    background-color: var(--light-blue);
+    color: var(--prussian-blue);
+}
+
+.registration-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--sky-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Dodajemo stilove za narandžasti poziv na akciju */
+.registration-form .call-to-action {
+    background-color: var(--orange);
+    transition: background-color 0.3s ease;
+}
+
+.registration-form .call-to-action:hover {
+    background-color: var(--indigo-dye-2);
+}
