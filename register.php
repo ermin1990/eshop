@@ -1,5 +1,6 @@
 <?php
 require_once "app/classes/User.php";
+$pageTittle = "Register";
 require_once "inc/header.php";
 
 
@@ -14,9 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $create = $user->createUser($name,$username,$email,$password);
 
     if ($create){
-        echo "Uspješno kreiraj user";
+        $_SESSION['servermsg'] = "Uspješno kreiran korisnik!";
+        header("Location: index.php");
     }else{
-        echo "Neuspješno kreiran user";
+        header("Location: register.php");
+        exit();
     }
 
 }
@@ -24,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 ?>
 
-    <form class="registration-form" method="POST" action="">
+    <form class="registration-form setinmiddle" method="POST" action="">
         <h2>Registracija</h2>
         <input type="text" placeholder="Ime i prezime" name="name" required>
         <input type="email" placeholder="Email adresa" name="email" required>

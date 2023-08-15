@@ -20,13 +20,6 @@ body {
     color: white;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .registration-form {
     background-color: var(--air-force-blue);
     padding: 20px;
@@ -73,3 +66,14 @@ body {
 .registration-form .call-to-action:hover {
     background-color: var(--indigo-dye-2);
 }
+
+.setinmiddle{
+    margin-top: 30vh;
+}
+
+/* MAIN MENU */
+
+.mainMenu{
+    background-color: var(--sky-blue);
+}
+
