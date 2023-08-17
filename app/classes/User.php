@@ -84,10 +84,10 @@ class User{
         }return false;
     }
 
-    public function is_admin(){
+    public function is_admin($user_id){
         $sql = "SELECT * FROM users WHERE user_id = ? AND is_admin=1";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i",$_SESSION['user_id']);
+        $stmt->bind_param("i",$user_id);
         $stmt->execute();
         $res = $stmt->get_result();
 

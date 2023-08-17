@@ -9,7 +9,7 @@ require_once '../app/classes/User.php';
 
 $user = new User();
 
-if(!$user->is_admin()){
+if(!$user->is_admin($_SESSION['user_id'])){
     header("Location: ../index.php");
 }
 
@@ -20,7 +20,7 @@ $products = $product->get_all();
 
 
 <div class="container mt-5">
-    <h2>Products Management</h2>
+    <h3 class="display-5">Products Management</h3>
     <a href="add_product.php" class="btn btn-primary mb-3">Add New Product</a>
 
     <table class="table">

@@ -15,7 +15,7 @@ $all_discounts = $discount->get_all_discounts();
 $discount_id = $_GET['id'];
 $utils = new Utils();
 $user = new User();
-if (!$user->is_admin()) {
+if (!$user->is_admin($_SESSION['user_id'])) {
     header("Location: ../index.php");
 }
 

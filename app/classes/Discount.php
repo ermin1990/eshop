@@ -63,15 +63,27 @@ class Discount extends Product
         }
     }
 
-    public function add_product_to_discount($discount_id,$selected_products){
+    public function add_product_to_discount($discount_id, $selected_products) {
+        $sql_check = "SELECT * FROM product_discounts WHERE discount_id = ? AND product_id = ?";
+        $stmt_check = $this->conn->prepare($sql_check);
+
         $sql_insert = "INSERT INTO product_discounts (discount_id, product_id) VALUES (?, ?)";
         $stmt_insert = $this->conn->prepare($sql_insert);
 
         foreach ($selected_products as $product_id) {
-            $stmt_insert->bind_param("ii", $discount_id, $product_id);
-            $stmt_insert->execute();
+            // Provjeri da li proizvod već postoji u discountu
+            $stmt_check->bind_param("ii", $discount_id, $product_id);
+            $stmt_check->execute();
+            $result = $stmt_check->get_result();
+
+            if ($result->num_rows === 0) {
+                // Dodaj proizvod u discount samo ako ne postoji
+                $stmt_insert->bind_param("ii", $discount_id, $product_id);
+                $stmt_insert->execute();
+            }
         }
     }
+
 
     public function remove_product_from_discount($selected_products, $discount_id)
     {

@@ -16,6 +16,8 @@ $cart_items = $cart->get_cart_items();
 
 
 ?>
+<script src="https://unpkg.com/htmx.org@1.9.4"></script>
+<h3 class="display-3">Moja korpa</h3>
 <table class="table">
     <thead>
     <tr>
@@ -26,6 +28,7 @@ $cart_items = $cart->get_cart_items();
         <th scope="col">Količina</th>
         <th scope="col">Ukupna cijena</th>
         <th scope="col">Slika</th>
+        <th scope="col">Akcije</th>
     </tr>
     </thead>
     <tbody>
@@ -35,9 +38,15 @@ $cart_items = $cart->get_cart_items();
             <td><?php echo $item['name']; ?></td>
             <td><?php echo $item['size']; ?></td>
             <td>€<?php echo $item['price']; ?></td>
-            <td><?php echo $item['quantity']; ?></td>
-            <td>$<?php echo $item['price'] * $item['quantity']; ?></td>
+            <td><input value="<?php echo $item['quantity']; ?>" name="quantity"  type="text"
+                       hx-post="update_quantity_cart_item.php?id=<?php echo $item['cart_id'];?>"
+                       hx-trigger="keyup delay:1s"
+                       hx-swap-oob="true"
+                       hx-on:htmx:after-swap="location.reload();"
+                ></td>
+            <td>€<?php echo $item['price'] * $item['quantity']; ?></td>
             <td><img src="public/images/<?php echo $item['image']; ?>" alt="Product Image" style="height: 50px;"></td>
+            <td><a href="delete_cart_item.php?id=<?php echo $item['cart_id'] ?>" class="btn btn-danger btn-sm">Delete</a></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
@@ -55,17 +64,6 @@ $cart_items = $cart->get_cart_items();
     </p>
     <a href="checkout.php" class="btn btn-primary">Checkout</a>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php require_once "inc/footer.php" ?>

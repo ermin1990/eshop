@@ -9,7 +9,7 @@ require_once '../app/classes/Product.php';
 require_once '../app/classes/Utils.php';
 
 $user = new User();
-if (!$user->is_admin()) {
+if (!$user->is_admin($_SESSION['user_id'])) {
     header("Location: ../index.php");
 }
 
@@ -23,7 +23,7 @@ $utils = new Utils();
 ?>
 
 <div class="container mt-5">
-    <h2 class="mb-4">Sve Narudžbe</h2>
+    <h2 class="display-5">Sve Narudžbe</h2>
     <table class="table table-striped">
         <thead>
         <tr>

@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <?php
 
-require_once (BASE_DIR.'app/classes/User.php');
+require_once ('app/classes/User.php');
 
 $user = new User();
 
@@ -37,9 +37,9 @@ $user = new User();
                 <li class="nav-link">
                     <a class="btn btn-danger" href="logout.php">Logout</a>
                 </li>
-                <?php if ($user->is_loggedIn() && $user->is_admin()):?>
+                <?php if ($user->is_loggedIn() && $user->is_admin($_SESSION['user_id'])):?>
                     <li class="nav-link">
-                    <a class="btn btn-dark" href="admin/">Admin dashboard</a>
+                    <a class="btn btn-dark" href="admin/products.php">Admin dashboard</a>
                 </li>
                 <?php endif ?>
 

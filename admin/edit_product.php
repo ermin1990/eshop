@@ -9,7 +9,7 @@ $user = new User();
 $product = new Product();
 
 
-if(!$user->is_admin()){
+if(!$user->is_admin($_SESSION['user_id'])){
     header("Location: ../index.php");
 }
 

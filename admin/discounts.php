@@ -10,7 +10,7 @@ $discount = new Discount();
 $all_discounts = $discount->get_all_discounts();
 
 $user = new User();
-if(!$user->is_admin()){
+if(!$user->is_admin($_SESSION['user_id'])){
     header("Location: ../index.php");
 }
 ?>
@@ -40,7 +40,7 @@ if(!$user->is_admin()){
 
                     <td>
                         <a href="add_products_discount.php?id=<?php echo $discount['discount_id']; ?>" class="btn btn-info btn-sm">Dodaj artikle</a>
-                        <a href="edit_discount.php?id=<?php echo $discount['discount_id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <!--<a href="edit_discount.php?id=<?php /*echo $discount['discount_id']; */?>" class="btn btn-warning btn-sm">Edit</a>-->
 
                     </td>
                 </tr>
