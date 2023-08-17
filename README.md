@@ -43,9 +43,6 @@ Dobrodošli u E-Shop Web Aplikaciju! Ovo je jednostavna web aplikacija izrađena
 
 Doprinosi su dobrodošli! Ako primijetite bilo kakve probleme ili imate sugestije za poboljšanja, slobodno otvorite "issue" ili podnesite "pull request".
 
-### Licenca
-
-Ovaj projekat je licenciran pod [MIT Licencom](LICENSE).
 
 ---
 
