@@ -1,8 +1,8 @@
 <?php
-require_once "app/classes/User.php";
+
 $pageTittle = "Register";
 require_once "inc/header.php";
-
+require_once "app/classes/User.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST['name'];
@@ -31,10 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <h2>Registracija</h2>
         <input type="text" placeholder="Ime i prezime" name="name" required>
         <input type="email" placeholder="Email adresa" name="email" required>
-        <input type="text" placeholder="Username" name="username" required>
+        <input type="text" placeholder="Username" name="username" id="username" required>
+        <p class="d-none" id="username-status"></p>
         <input type="password" placeholder="Lozinka" name="password" required>
         <button class="call-to-action" type="submit">Registruj se</button>
     </form>
 
 
 <?php require_once "inc/footer.php"; ?>
+

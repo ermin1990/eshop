@@ -12,6 +12,17 @@
     --orange: #ff9f1aff; /* Dodali smo narandžastu boju */
 }
 
+.nav-item{
+    margin: 4px;
+    padding: 2px;
+}
+
+.nav-item:hover{
+    background-color: white;
+    padding: 2px;
+    border-radius: 6px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -76,4 +87,39 @@ body {
 .mainMenu{
     background-color: var(--sky-blue);
 }
+
+
+/*VALIDATION */
+
+.valid{
+    background-color: chartreuse;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.taken{
+    background-color: brown;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+/* Product form */
+
+.productForm_quantity_input{
+    width: 50px;
+}
+
+
+.img-container {
+    overflow: hidden;
+    height: 300px; /* Prilagodite visinu prema vašim potrebama */
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/app/classes/Cart.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/app/classes/Discount.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/app/classes/Order.php" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/app/classes/User.php" dialect="GenericSQL" />
   </component>
 </project>

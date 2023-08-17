@@ -1,7 +1,5 @@
 <?php
-define('BASE_DIR', $_SERVER['DOCUMENT_ROOT']."/shop/");
-
-require_once (BASE_DIR . "/app/config/config.php")?>
+require_once ("../app/config/config.php")?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +7,6 @@ require_once (BASE_DIR . "/app/config/config.php")?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Eshop <?php if(isset($pageTittle)){echo $pageTittle;}  ?></title>
@@ -20,12 +17,15 @@ require_once (BASE_DIR . "/app/config/config.php")?>
 
 <?php if(isset($_SESSION['servermsg'])): ?>
     <div class="alert alert-info alert-dismissible"> <?= $_SESSION['servermsg'];
-    unset($_SESSION['servermsg']);
-    ?>  </div>
+        unset($_SESSION['servermsg']);
+        ?>  </div>
 
-<?php endif; ?>
+<?php endif;
 
-<?php require_once ("top_navbar.php")?>
+require_once 'admin_menu.php';
+?>
 
-    <div class="container mb-3">
+
+
+<div class="container mb-3">
 

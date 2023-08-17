@@ -39,6 +39,20 @@ class User{
         }
     }
 
+
+    public function checkUser($username){
+        $sql = "SELECT * FROM users WHERE username = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $user = $stmt->get_result()->fetch_assoc();
+        if ($user){
+            return true;
+        }else{
+            return false;
+        }
+}
+
     public function login($username, $password) {
         $sql = "SELECT * FROM users WHERE username = ?";
         $stmt = $this->conn->prepare($sql);
@@ -68,6 +82,28 @@ class User{
         if (isset($_SESSION['user_id'])){
             return true;
         }return false;
+    }
+
+    public function is_admin(){
+        $sql = "SELECT * FROM users WHERE user_id = ? AND is_admin=1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i",$_SESSION['user_id']);
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        if ($res->num_rows>0){
+            return true;
+        }return false;
+    }
+
+    public function getUser($user_id)
+    {
+        $sql = "SELECT * FROM users WHERE user_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i",$user_id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        return $res->fetch_assoc();
     }
 
 
